@@ -1,0 +1,43 @@
+{
+  "name": "kitsuna-no-akuma",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A pixel-art open-world action RPG made for Cloudflare Pages.",
+  "scripts": {
+    "dev": "wrangler pages dev . --compatibility-date=2026-10-10",
+    "deploy": "wrangler pages deploy . --project-name=kitsuna-no-akuma",
+    "desktop:install": "npm install",
+    "desktop:dev": "electron desktop/main.cjs",
+    "desktop:package": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261010.1",
+    "electron": "^37.4.0",
+    "electron-builder": "^26.0.12",
+    "wrangler": "^4.48.0"
+  },
+  "main": "desktop/main.cjs",
+  "build": {
+    "appId": "com.kitsuna.akuma",
+    "productName": "Kitsuna no Akuma",
+    "files": [
+      "index.html",
+      "styles.css",
+      "game.js",
+      "manifest.webmanifest",
+      "sw.js",
+      "assets/**/*",
+      "desktop/**/*"
+    ],
+    "win": {
+      "target": ["nsis"],
+      "artifactName": "Kitsuna-no-Akuma-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}

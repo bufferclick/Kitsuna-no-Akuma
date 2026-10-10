@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#110f22" />
+  <meta name="description" content="Kitsuna no Akuma — a pixel-art open-world fox pact RPG." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Kitsuna no Akuma</title>
+</head>
+<body>
+  <div id="app">
+    <canvas id="game" width="1280" height="720" aria-label="Kitsuna no Akuma game canvas"></canvas>
+
+    <section id="loading" class="screen loading-screen">
+      <div class="loading-emblem"><span>狐</span></div>
+      <p class="eyebrow">PACT PROTOCOL / 01</p>
+      <h1>KITSUNA<br><i>NO AKUMA</i></h1>
+      <div class="load-line"><i id="loadFill"></i></div>
+      <div class="load-copy"><span id="loadText">PREPARING THE SPIRIT ARCHIVE</span><b id="loadPercent">0%</b></div>
+      <p class="tiny">Downloading world files once. Future launches are cached for play without friction.</p>
+    </section>
+
+    <section id="mainMenu" class="screen menu-screen hidden" aria-label="Main menu">
+      <div class="menu-scenery"></div>
+      <div class="menu-side">
+        <div class="brand-mark">狐</div>
+        <p class="eyebrow">A PIXEL-ART PACT RPG</p>
+        <h1>KITSUNA <em>NO</em> AKUMA</h1>
+        <p class="tagline">The forest remembers every oath.<br>Make yours sharp enough to survive.</p>
+        <nav class="menu-actions">
+          <button class="menu-btn gold" id="newGame">BEGIN THE HUNT <kbd>↵</kbd></button>
+          <button class="menu-btn" id="continueGame">CONTINUE <kbd>C</kbd></button>
+          <button class="menu-btn" id="openHowTo">FIELD MANUAL <kbd>?</kbd></button>
+          <button class="menu-btn" id="openSettings">SETTINGS <kbd>⚙</kbd></button>
+        </nav>
+        <p class="version">v1.0.0 • BUILD: FOXFIRE</p>
+      </div>
+      <div class="menu-note"><b>THE FOX DEVIL LISTENS.</b><br>Trade hunger for power. The price changes.</div>
+    </section>
+
+    <section id="gameUI" class="hidden" aria-label="Game interface">
+      <header class="hud-top">
+        <div class="player-card">
+          <div class="portrait"><span>狐</span><i></i></div>
+          <div class="identity"><b id="playerName">THE PACTBEARER</b><span id="playerTitle">Wanderer of Ashenvale</span></div>
+          <div class="level-badge"><small>LVL</small><b id="levelValue">1</b></div>
+          <div class="bars"><div class="bar health"><i id="healthFill"></i><span id="healthText">120 / 120</span></div><div class="bar spirit"><i id="spiritFill"></i><span id="spiritText">80 / 80</span></div><div class="xp-line"><i id="xpFill"></i></div></div>
+        </div>
+        <div class="world-readout"><b id="regionName">ASHENVALE FRONTIER</b><span><i class="sun-dot"></i><span id="clock">06:20</span> • Day <span id="dayCount">1</span></span></div>
+        <div class="currency"><span>✦</span><b id="shardCount">0</b><small>SPIRIT SHARDS</small></div>
+      </header>
+
+      <aside class="quest-panel panel-edge" id="questTracker"><p class="panel-label">ACTIVE HUNT</p></aside>
+      <div id="toast" class="toast"></div>
+      <div id="combatText" class="combat-text"></div>
+      <div id="interactPrompt" class="interact-prompt hidden"><kbd>E</kbd><span id="interactText">Speak</span></div>
+      <div id="bossBar" class="boss-bar hidden"><div><b id="bossName">Gloomfang Alpha</b><span>THREAT LEVEL ★★★</span></div><i><em id="bossHealth"></em></i></div>
+
+      <div class="bottom-zone">
+        <div class="controls-hint"><span><kbd>WASD</kbd> move</span><span><kbd>J</kbd> strike</span><span><kbd>SPACE</kbd> parry</span><span><kbd>SHIFT</kbd> dash</span></div>
+        <div class="hotbar" id="hotbar"></div>
+        <div class="system-buttons">
+          <button data-panel="character"><i>✦</i><span>SOUL</span></button>
+          <button data-panel="fox"><i>狐</i><span>FOX</span></button>
+          <button data-panel="journal"><i>▤</i><span>LOG</span></button>
+          <button data-panel="map"><i>◇</i><span>MAP</span></button>
+          <button data-panel="settings"><i>⚙</i><span>SET</span></button>
+        </div>
+      </div>
+
+      <div id="modalShade" class="modal-shade hidden"></div>
+      <section id="modal" class="modal hidden" aria-live="polite"></section>
+      <section id="dialogue" class="dialogue hidden"><div class="dialogue-portrait">?</div><div><p id="dialogueSpeaker">FOREST</p><div id="dialogueText"></div><small><kbd>E</kbd> continue <kbd>ESC</kbd> leave</small></div></section>
+    </section>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# Cloudflare Pages deployment configuration
+name = "kitsuna-no-akuma"
+compatibility_date = "2026-10-10"
+pages_build_output_dir = "."
+
+# This is a static, client-side game. No Worker or API binding is needed.

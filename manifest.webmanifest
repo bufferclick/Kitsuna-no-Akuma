@@ -1,0 +1,13 @@
+{
+  "name": "Kitsuna no Akuma",
+  "short_name": "Kitsuna",
+  "description": "A pixel-art open-world action RPG about a fox spirit pact.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#110f22",
+  "theme_color": "#110f22",
+  "orientation": "landscape",
+  "icons": [
+    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
